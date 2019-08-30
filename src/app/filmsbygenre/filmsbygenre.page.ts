@@ -3,6 +3,7 @@ import { HomePage } from '../home/home.page';
 import { Title } from '@angular/platform-browser';
 import { NavController, NavParams } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-filmsbygenre',
@@ -11,11 +12,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FilmsbygenrePage implements OnInit {
   title : String;
-  constructor(private activatedRoute: ActivatedRoute) { 
+  constructor(private activatedRoute: ActivatedRoute ,private statusBar: StatusBar) { 
    }
 
   ngOnInit() {
     this.title = this.activatedRoute.snapshot.paramMap.get('myid');
+    this.statusBar.overlaysWebView(true);
   }
 
 }
