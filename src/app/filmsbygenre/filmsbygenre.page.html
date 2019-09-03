@@ -22,30 +22,18 @@
 <ion-content class="bana">
   <div class="ion-padding">
     <!--dynamique cards-->
-    <ion-card class="banaseconde">
-      <img
-        src="https://cdnb.artstation.com/p/assets/images/images/013/258/181/large/abhishek-chaudhary-venom-anti-hero-wallpaper-edit-2.jpg"/>
+    
+    <ion-card class="banaseconde" *ngFor="let item of collect">
+      <img pr="1920x1080"
+        src={{item.thumb}}/>
       <ion-card-header>
-        <ion-card-subtitle color="light">Destination</ion-card-subtitle>
-        <ion-card-title color="light">Madison, WI</ion-card-title>
+        <ion-card-subtitle color="light">{{item.time}}</ion-card-subtitle>
+        <ion-card-title color="light">{{item.name}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the
-        Wisconsin Territory in 1836.
+        {{item.desc}}
       </ion-card-content>
     </ion-card>
     <!--dynamique cards-->
-    <ion-card class="banaseconde">
-        <img
-          src="https://wallpapershome.com/images/pages/pic_h/19383.jpg" />
-        <ion-card-header>
-          <ion-card-subtitle color="light">Destination</ion-card-subtitle>
-          <ion-card-title color="light">Madison, WI</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the
-          Wisconsin Territory in 1836.
-        </ion-card-content>
-      </ion-card>
   </div>
 </ion-content>
