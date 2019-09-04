@@ -33,10 +33,10 @@ export class FilmsbygenrePage implements OnInit {
   }
 
   onClick(id) {
-    this.data = this.collect[0];
+    this.data = this.collect[id];
     let dataString = encodeURIComponent(JSON.stringify(this.data));
     this.nav.navigateForward(`/filminfo/${dataString}`);
-    console.log(dataString);
+    console.log(id);
   }
 
   ngOnInit() {
