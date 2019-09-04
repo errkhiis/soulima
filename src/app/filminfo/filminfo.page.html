@@ -1,16 +1,42 @@
+<ion-header>
+  <ion-toolbar class="bana">
+    <ion-title color="light" class="ion-text-center">
+      <ion-grid>
+        <ion-col>
+          <ion-row justify-content-center>
+            <span class="idapp">{{data.name}}</span>
+          </ion-row>
+        </ion-col>
+      </ion-grid>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
 <ion-content class="bana">
   <div class="ion-padding">
     <!--dynamique cards-->
     <ion-card class="banaseconde">
+      <img pr="1920x1080" src={{data.thumb}} />
+      <ion-card-header>
+        <ion-card-title color="light">{{data.name}}</ion-card-title>
+        <ion-card-subtitle color="light">{{data.time}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        {{data.desc}}
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="banaseconde">
+      <ion-card-header>
+
+        <ion-card-title color="light">Video Player</ion-card-title>
+        <ion-card-subtitle color="light">Your video's gonna be loaded here!</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
         <iframe [attr.src]="link" frameborder="0" width="100%" allowfullscreen></iframe>
-        <ion-card-header>
-          <ion-card-subtitle color="light">test</ion-card-subtitle>
-          <ion-card-title color="light">test</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          test
-        </ion-card-content>
-      </ion-card>
+      </ion-card-content>
+    </ion-card>
+
     <!--dynamique cards-->
   </div>
 </ion-content>

@@ -11,7 +11,7 @@ import { DomSanitizer , SafeUrl} from '@angular/platform-browser';
 })
 export class FilminfoPage implements OnInit {
   id : any ;
-  data : films;
+  public data : films;
   link : SafeUrl;
   constructor(private activatedRoute: ActivatedRoute , public dom : DomSanitizer) {
     /*let descp =this.activatedRoute.snapshot.paramMap.get("desc") ; 

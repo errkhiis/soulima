@@ -25,6 +25,7 @@ export class FilmsbygenrePage implements OnInit {
     private fs: AngularFirestore, public nav: NavController) {
     this.title = this.activatedRoute.snapshot.paramMap.get('myid');
     this.statusBar.overlaysWebView(true);
+    this.statusBar.styleBlackTranslucent();
   }
 
   getAllfilms() {
@@ -35,6 +36,7 @@ export class FilmsbygenrePage implements OnInit {
     this.data = this.collect[0];
     let dataString = encodeURIComponent(JSON.stringify(this.data));
     this.nav.navigateForward(`/filminfo/${dataString}`);
+    console.log(dataString);
   }
 
   ngOnInit() {
