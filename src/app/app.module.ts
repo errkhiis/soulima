@@ -11,9 +11,10 @@ import {AngularFireModule} from '@angular/fire'
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { from } from 'rxjs';
 
 @NgModule({
-  declarations: [AppComponent, ],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFirestoreModule,AngularFireModule.initializeApp({
     

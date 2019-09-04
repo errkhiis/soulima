@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { films } from '../films.interface';
+import { DomSanitizer , SafeUrl} from '@angular/platform-browser';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { films } from '../films.interface';
 export class FilminfoPage implements OnInit {
   id : any ;
   data : films;
-  constructor(private activatedRoute: ActivatedRoute ) {
+  link : SafeUrl;
+  constructor(private activatedRoute: ActivatedRoute , public dom : DomSanitizer) {
     /*let descp =this.activatedRoute.snapshot.paramMap.get("desc") ; 
     let namep =this.activatedRoute.snapshot.paramMap.get("name"); 
     let thumbp=this.activatedRoute.snapshot.paramMap.get("thumb") ;
@@ -26,6 +28,7 @@ export class FilminfoPage implements OnInit {
     let dataS = this.activatedRoute.snapshot.paramMap.get("infos");
     this.data = JSON.parse(dataS);
     console.log(this.data.video);
+    this.link=this.dom.bypassSecurityTrustResourceUrl(this.data.video);
   }
   ngOnInit() {
   }
