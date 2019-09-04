@@ -2,7 +2,7 @@ import { Component, OnInit, CollectionChangeRecord, getDebugNode } from '@angula
 import { HomePage } from '../home/home.page';
 import { Title } from '@angular/platform-browser';
 import { NavController, NavParams, AngularDelegate } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { database } from 'firebase';
 import * as firebase from 'firebase';
@@ -18,8 +18,9 @@ import { element } from 'protractor';
 export class FilmsbygenrePage implements OnInit {
   title: string;
   public collect :films [] = [];
+  data : films = {}
   constructor(private activatedRoute: ActivatedRoute, private statusBar: StatusBar,
-    private fs : AngularFirestore) {
+    private fs : AngularFirestore , public nav : NavController) {
     this.title = this.activatedRoute.snapshot.paramMap.get('myid');
     this.statusBar.overlaysWebView(true);
 
@@ -29,9 +30,16 @@ export class FilmsbygenrePage implements OnInit {
     return this.fs.collection("/films/"+this.title+"/films").valueChanges()
   }
 
+  onClick(id){
+    this.data = this.collect[0];
+    let dataString = encodeURIComponent(JSON.stringify(this.data));
+    this.nav.navigateForward(`/filminfo/${dataString}`);
+  }
+
   ngOnInit() {
     this.getAllfilms().subscribe(
       data=>this.collect=data,
+
     );
   }
 }

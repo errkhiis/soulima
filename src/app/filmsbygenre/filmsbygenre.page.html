@@ -23,7 +23,7 @@
   <div class="ion-padding">
     <!--dynamique cards-->
     
-    <ion-card class="banaseconde" *ngFor="let item of collect">
+    <ion-card class="banaseconde"  *ngFor="let item of collect ; index as i" (click)="onClick(i)" >
       <img pr="1920x1080"
         src={{item.thumb}}/>
       <ion-card-header>
