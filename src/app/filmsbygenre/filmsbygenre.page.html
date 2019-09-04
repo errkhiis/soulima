@@ -4,7 +4,7 @@
       <ion-grid>
         <ion-col>
           <ion-row>
-            <ion-searchbar color="light" mode="ios"></ion-searchbar>
+            <ion-searchbar color="light" mode="ios" (ionInput)="search($event)" ></ion-searchbar>
           </ion-row>
         </ion-col>
         <ion-col>
@@ -23,7 +23,7 @@
   <div class="ion-padding">
     <!--dynamique cards-->
     
-    <ion-card class="banaseconde"  *ngFor="let item of collect ; index as i" (click)="onClick(i)" >
+    <ion-card class="banaseconde"  *ngFor="let item of fd ; index as i" (click)="onClick(i)" >
       <img pr="1920x1080"
         src={{item.thumb}}/>
       <ion-card-header>

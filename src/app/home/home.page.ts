@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class HomePage {
   title : String;
-  constructor(public nav : NavController,private statusBar: StatusBar) {
+  Result = [];
+  constructor(public nav : NavController,private statusBar: StatusBar , private fs : AngularFirestore) {
     
   }
 
@@ -21,5 +23,10 @@ export class HomePage {
 
   pushPage(){
     this.nav.navigateForward(`/filmsbygenre/${this.title}`);
+  }
+
+  search(event){
+    let term = event.target.value ;
+    
   }
 }

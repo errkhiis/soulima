@@ -17,20 +17,21 @@ import { element } from 'protractor';
 })
 export class FilmsbygenrePage implements OnInit {
   title: string;
-  public collect :films [] = [];
-  data : films = {}
+  public collect: films[] = [];
+  public fd: films[] = [];
+  data: films = {};
+
   constructor(private activatedRoute: ActivatedRoute, private statusBar: StatusBar,
-    private fs : AngularFirestore , public nav : NavController) {
+    private fs: AngularFirestore, public nav: NavController) {
     this.title = this.activatedRoute.snapshot.paramMap.get('myid');
     this.statusBar.overlaysWebView(true);
-
   }
 
-  getAllfilms(){
-    return this.fs.collection("/films/"+this.title+"/films").valueChanges()
+  getAllfilms() {
+    return this.fs.collection("/films/" + this.title + "/films").valueChanges()
   }
 
-  onClick(id){
+  onClick(id) {
     this.data = this.collect[0];
     let dataString = encodeURIComponent(JSON.stringify(this.data));
     this.nav.navigateForward(`/filminfo/${dataString}`);
@@ -38,8 +39,29 @@ export class FilmsbygenrePage implements OnInit {
 
   ngOnInit() {
     this.getAllfilms().subscribe(
-      data=>this.collect=data,
+      data => {
+        this.collect = data;
+        this.fd = data;
+      }
 
     );
+
+  }
+
+  ionViewDidEnter() {
+  }
+
+  search($event) {
+    let term = $event.target.value;
+    if (term == "") {
+      this.fd = this.collect.filter((f => {
+        return term.toLowerCase().indexOf(f.name.toLowerCase()) ;
+      }));
+    } else {
+      this.fd = this.collect.filter((f => {
+        //return term.toLowerCase().indexOf(f.name.toLowerCase()) > -1;
+        return f.name.toLocaleLowerCase().includes(term.toLocaleLowerCase());
+      }));
+    }
   }
 }

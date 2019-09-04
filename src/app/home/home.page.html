@@ -4,7 +4,7 @@
       <ion-grid>
         <ion-col>
           <ion-row>
-            <ion-searchbar color="light" mode="ios"></ion-searchbar>
+            <ion-searchbar (ionInput)="search($event)" color="light" mode="ios"></ion-searchbar>
           </ion-row>
         </ion-col>
         <ion-col>
