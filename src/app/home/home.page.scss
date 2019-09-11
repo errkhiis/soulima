@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Faster+One&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
 .backgroundo{
-    --background: black;
+    --background: #000;
 }
 .idapp{
-    font-family: 'Bungee Inline', cursive;
+    font-family: 'Faster One', cursive;
     color: white;
 }
 .bana{
-    --background: #0C0C0C;
+    --background: #000;
 }
 .banaseconde{
     --background:#181818;
@@ -21,3 +21,9 @@
 .subtitlo{
     color: #5B4C6B;
 }
+ion-icon {
+    font-size: 60px;
+    display: contents;
+    color: #FF9900;
+  }
+  

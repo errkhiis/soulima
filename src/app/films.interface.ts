@@ -4,4 +4,7 @@ export interface films {
     thumb?:string,
     time?:string,
     video?:string,
+    video2?:string,
+    video3?:string,
+    video4?:string,
 }

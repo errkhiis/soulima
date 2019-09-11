@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { from } from 'rxjs';
 
+import {StreamingMedia} from '@ionic-native/streaming-media/ngx'
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -28,6 +30,7 @@ import { from } from 'rxjs';
     
   })],
   providers: [
+    StreamingMedia,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

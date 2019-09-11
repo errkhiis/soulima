@@ -40,6 +40,7 @@ export class FilmsbygenrePage implements OnInit {
   }
 
   ngOnInit() {
+    this.statusBar.hide();
     this.getAllfilms().subscribe(
       data => {
         this.collect = data;
