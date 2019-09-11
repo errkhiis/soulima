@@ -14,21 +14,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { from } from 'rxjs';
 
 import {StreamingMedia} from '@ionic-native/streaming-media/ngx'
+import { firebaseConfig } from './db';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFirestoreModule,AngularFireModule.initializeApp({
-    
-      apiKey: "AIzaSyDtxNNUwvVfw6oN40aJK8KbkaP4chUd6fY",
-      authDomain: "soulima-6a190.firebaseapp.com",
-      databaseURL: "https://soulima-6a190.firebaseio.com",
-      projectId: "soulima-6a190",
-      storageBucket: "soulima-6a190.appspot.com",
-      messagingSenderId: "76912271080",
-      appId: "1:76912271080:web:29bd53e17e23f8b0"
-    
-  })],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFirestoreModule,AngularFireModule.initializeApp(firebaseConfig)],
   providers: [
     StreamingMedia,
     StatusBar,

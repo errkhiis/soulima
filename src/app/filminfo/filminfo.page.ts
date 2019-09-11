@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { films } from '../films.interface';
-import { DomSanitizer , SafeUrl} from '@angular/platform-browser';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
-import { StatusBar } from '@ionic-native/status-bar/ngx'; 
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
 
 
@@ -13,13 +13,13 @@ import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-m
   styleUrls: ['./filminfo.page.scss'],
 })
 export class FilminfoPage implements OnInit {
-  id : any ;
-  public data : films;
-  link : SafeUrl;
-  link2 : SafeUrl;
-  link3 : SafeUrl;
-  link4 : SafeUrl;
-  constructor(private activatedRoute: ActivatedRoute , public dom : DomSanitizer , private strm : StreamingMedia ,private statusBar: StatusBar) {
+  id: any;
+  public data: films;
+  link: SafeUrl;
+  link2: SafeUrl;
+  link3: SafeUrl;
+  link4: SafeUrl;
+  constructor(private activatedRoute: ActivatedRoute, public dom: DomSanitizer, private strm: StreamingMedia, private statusBar: StatusBar) {
     /*let descp =this.activatedRoute.snapshot.paramMap.get("desc") ; 
     let namep =this.activatedRoute.snapshot.paramMap.get("name"); 
     let thumbp=this.activatedRoute.snapshot.paramMap.get("thumb") ;
@@ -33,25 +33,56 @@ export class FilminfoPage implements OnInit {
     console.log(this.data);*/
     let dataS = this.activatedRoute.snapshot.paramMap.get("infos");
     this.data = JSON.parse(dataS);
-    this.link=this.data.video;
-    this.link2=this.data.video2;
-    this.link3=this.data.video3;
-    this.link4=this.data.video4;
+    this.link = this.data.video;
+    this.link2 = this.data.video2;
+    this.link3 = this.data.video3;
+    this.link4 = this.data.video4;
   }
-  
-  openStrm(datain){
-    this.strm.playVideo(datain);
+
+  openStrm(datain) {
+    let options: StreamingVideoOptions = {
+      successCallback: () => { console.log('Video played') },
+      errorCallback: (e) => { console.log('Error streaming') },
+      orientation: 'landscape',
+      shouldAutoClose: false,
+      controls: true,
+    };
+    this.strm.playVideo(datain, options);
   }
-  openStrm2(datain2){
-    this.strm.playVideo(datain2);
+  openStrm2(datain2) {
+
+    let options: StreamingVideoOptions = {
+      successCallback: () => { console.log('Video played') },
+      errorCallback: (e) => { console.log('Error streaming') },
+      orientation: 'landscape',
+      shouldAutoClose: false,
+      controls: true,
+    };
+    this.strm.playVideo(datain2, options);
   }
-  openStrm3(datain3){
-    this.strm.playVideo(datain3);
+  openStrm3(datain3) {
+
+    let options: StreamingVideoOptions = {
+      successCallback: () => { console.log('Video played') },
+      errorCallback: (e) => { console.log('Error streaming') },
+      orientation: 'landscape',
+      shouldAutoClose: false,
+      controls: true,
+    };
+    this.strm.playVideo(datain3, options);
   }
-  openStrm4(datain4){
-    this.strm.playVideo(datain4);
+  openStrm4(datain4) {
+
+    let options: StreamingVideoOptions = {
+      successCallback: () => { console.log('Video played') },
+      errorCallback: (e) => { console.log('Error streaming') },
+      orientation: 'landscape',
+      shouldAutoClose: false,
+      controls: true,
+    };
+    this.strm.playVideo(datain4, options);
   }
-  ngOnInit(){
+  ngOnInit() {
     this.statusBar.hide();
   }
 

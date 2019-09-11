@@ -16,42 +16,39 @@
 
 <ion-content class="bana">
   <div class="ion-padding">
-    <!--dynamique cards-->
-    <ion-card class="banaseconde">
-      <img pr="1920x1080" src={{data.thumb}} />
-      <ion-card-header>
-        <ion-card-title color="light">{{data.name}}</ion-card-title>
-        <ion-card-subtitle color="light">{{data.time}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        {{data.desc}}
-      </ion-card-content>
-    </ion-card>
-    <ion-card class="banaseconde">
-      <ion-card-header>
 
-        <ion-card-title color="light">Video Player</ion-card-title>
-        <ion-card-subtitle color="light">Your video's gonna be loaded here!</ion-card-subtitle>
+    <ion-card class="banaseconde">
+      <ion-card-header>
+        <img pr="1920x1080" src={{data.thumb}} />
+        
+        <ion-card-subtitle color="#000">{{data.time}}</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
+        <p class="changeCC"><b class="changeC">Rating</b> : {{data.rating}}</p>
+        <p class="changeCC"><b class="changeC">Year</b> : {{data.year}}</p>
+        <p class="changeCC"><b class="changeC">Director By</b> : {{data.director}}</p>
+        <p class="changeCC"><b class="changeC">Writing Credits</b> : {{data.writers}}</p>
+        <b class="changeC">Streaming :</b>
         <ion-button expand="block" (click)="openStrm(link)" mode="ios">
           <span>1080p</span>
           <ion-icon name="play-circle"></ion-icon>
         </ion-button>
-        <ion-button expand="block" (click)="openStrm2(link2)" mode="ios" >
-          <span>720p</span>
+        <ion-button expand="block" (click)="openStrm2(link2)" mode="ios">
+          <span>0720p</span>
           <ion-icon name="play-circle"></ion-icon>
         </ion-button>
-        <ion-button expand="block" (click)="openStrm3(link3)" mode="ios" >
-          <span>480p</span>
+        <ion-button expand="block" (click)="openStrm3(link3)" mode="ios">
+          <span>0480p</span>
           <ion-icon name="play-circle"></ion-icon>
         </ion-button>
-        <ion-button expand="block" (click)="openStrm4(link4)" mode="ios" >
-          <span>360p</span>
+        <ion-button expand="block" (click)="openStrm4(link4)" mode="ios">
+          <span>0360p</span>
           <ion-icon name="play-circle"></ion-icon>
         </ion-button>
       </ion-card-content>
     </ion-card>
+    <!--dynamique cards-->
+
 
     <!--dynamique cards-->
   </div>

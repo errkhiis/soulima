@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +12,21 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class HomePage {
   title : String;
   Result = [];
-  constructor(public nav : NavController,private statusBar: StatusBar , private fs : AngularFirestore) {
-    
+  constructor(public nav : NavController,private statusBar: StatusBar , private fs : AngularFirestore , public alertController: AlertController) {
+    this.presentAlert();
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'MoviesTea',
+      animated : true ,
+      mode : 'ios' ,
+      subHeader: 'Created by : @errkhiis-company',
+      message: "If you don't find your movie , you can demand it to our team by sending mail to moviestea2020@gmail.com , or by joining to our facebook's group @MoviesTea",
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
   ngOnInit(): void {

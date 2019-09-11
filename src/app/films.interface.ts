@@ -7,4 +7,8 @@ export interface films {
     video2?:string,
     video3?:string,
     video4?:string,
+    director ? : string,
+    rating ? : string,
+    writers ?:string,
+    year ? : string,
 }

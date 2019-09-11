@@ -20,6 +20,7 @@ export class FilmsbygenrePage implements OnInit {
   public collect: films[] = [];
   public fd: films[] = [];
   data: films = {};
+  term : string ;
 
   constructor(private activatedRoute: ActivatedRoute, private statusBar: StatusBar,
     private fs: AngularFirestore, public nav: NavController) {
@@ -33,10 +34,18 @@ export class FilmsbygenrePage implements OnInit {
   }
 
   onClick(id) {
-    this.data = this.collect[id];
-    let dataString = encodeURIComponent(JSON.stringify(this.data));
-    this.nav.navigateForward(`/filminfo/${dataString}`);
-    console.log(id);
+    if(this.term == ""){
+      this.data = this.collect[id];
+      let dataString = encodeURIComponent(JSON.stringify(this.data));
+      this.nav.navigateForward(`/filminfo/${dataString}`);
+      console.log(id);
+    }else{
+      this.data = this.fd[id];
+      let dataString = encodeURIComponent(JSON.stringify(this.data));
+      this.nav.navigateForward(`/filminfo/${dataString}`);
+      console.log(id);
+    }
+
   }
 
   ngOnInit() {
@@ -55,15 +64,15 @@ export class FilmsbygenrePage implements OnInit {
   }
 
   search($event) {
-    let term = $event.target.value;
-    if (term == "") {
+    this.term = $event.target.value;
+    if (this.term == "") {
       this.fd = this.collect.filter((f => {
-        return term.toLowerCase().indexOf(f.name.toLowerCase()) ;
+        return this.term.toLowerCase().indexOf(f.name.toLowerCase()) ;
       }));
     } else {
       this.fd = this.collect.filter((f => {
         //return term.toLowerCase().indexOf(f.name.toLowerCase()) > -1;
-        return f.name.toLocaleLowerCase().includes(term.toLocaleLowerCase());
+        return f.name.toLocaleLowerCase().includes(this.term.toLocaleLowerCase());
       }));
     }
   }
