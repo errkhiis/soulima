@@ -1,14 +1,9 @@
 import { Component, OnInit, CollectionChangeRecord, getDebugNode } from '@angular/core';
-import { HomePage } from '../home/home.page';
-import { Title } from '@angular/platform-browser';
 import { NavController, NavParams, AngularDelegate } from '@ionic/angular';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { database } from 'firebase';
-import * as firebase from 'firebase';
-import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
+import {  AngularFirestore } from '@angular/fire/firestore';
 import { films } from '../films.interface';
-import { element } from 'protractor';
 
 @Component({
   selector: 'app-filmsbygenre',

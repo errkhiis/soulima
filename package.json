@@ -28,6 +28,7 @@
     "@ionic-native/video-player": "^5.0.0-beta.14",
     "@ionic/angular": "^4.7.1",
     "cordova-android": "8.0.0",
+    "cordova-plugin-exoplayer": "^2.5.4",
     "cordova-plugin-streaming-media": "^2.2.0",
     "cordova-plugin-video-player": "git+https://github.com/moust/cordova-plugin-videoplayer.git",
     "core-js": "^2.5.4",
@@ -81,7 +82,8 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "com.moust.cordova.videoplayer": {},
-      "cordova-plugin-streaming-media": {}
+      "cordova-plugin-streaming-media": {},
+      "cordova-plugin-exoplayer": {}
     },
     "platforms": [
       "android"
